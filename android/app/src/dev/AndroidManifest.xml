@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Dev flavor overlay manifest.
+  Only contains what differs from android/app/src/main/AndroidManifest.xml.
+  The app_name string is provided by resValue("string", "app_name", "Quran Dev")
+  in build.gradle.kts.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+</manifest>

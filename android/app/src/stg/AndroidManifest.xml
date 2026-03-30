@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Staging flavor overlay manifest.
+  The app_name string is provided by resValue("string", "app_name", "Quran Stg")
+  in build.gradle.kts.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+</manifest>
