@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:quran_app/feature/quran_fehres/domain/entity/surah_entity.dart';
 
 part 'surah_model.g.dart';
 
@@ -17,7 +16,7 @@ class SurahModel {
 }
 
 @JsonSerializable()
-class SurahDataModel extends SurahEntity {
+class SurahDataModel {
   int? number;
   String? name;
   String? englishName;
@@ -32,12 +31,7 @@ class SurahDataModel extends SurahEntity {
     required this.englishNameTranslation,
     required this.numberOfAyahs,
     required this.revelationType,
-  }) : super(
-         number: number,
-         surahName: name,
-         numberOfAyahs: numberOfAyahs,
-         revelationType: revelationType,
-       );
+  });
 
   factory SurahDataModel.fromJson(Map<String, dynamic> json) =>
       _$SurahDataModelFromJson(json);
