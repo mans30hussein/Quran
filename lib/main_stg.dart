@@ -6,7 +6,6 @@ void main() {
   FlavorConfig.init(
     flavor: Flavor.stg,
     appName: 'Quran Stg',
-    bundleId: 'com.quran.app.stg',
     baseUrl: 'https://stg-api.quran.example.com',
   );
   runApp(const MyApp());

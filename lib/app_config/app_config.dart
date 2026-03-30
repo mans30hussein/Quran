@@ -3,13 +3,11 @@ enum Flavor { dev, stg, prod }
 class FlavorConfig {
   final Flavor flavor;
   final String appName;
-  final String bundleId;
   final String baseUrl;
 
   FlavorConfig._({
     required this.flavor,
     required this.appName,
-    required this.bundleId,
     required this.baseUrl,
   });
 
@@ -27,13 +25,11 @@ class FlavorConfig {
   static void init({
     required Flavor flavor,
     required String appName,
-    required String bundleId,
     required String baseUrl,
   }) {
     _instance = FlavorConfig._(
       flavor: flavor,
       appName: appName,
-      bundleId: bundleId,
       baseUrl: baseUrl,
     );
   }
@@ -44,6 +40,5 @@ class FlavorConfig {
 
   @override
   String toString() =>
-      'FlavorConfig(flavor: $flavor, appName: $appName, '
-      'bundleId: $bundleId, baseUrl: $baseUrl)';
+      'FlavorConfig(flavor: $flavor, appName: $appName, baseUrl: $baseUrl)';
 }
