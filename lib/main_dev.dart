@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/app_config/app_config.dart';
-import 'package:quran_app/main.dart';
+import 'package:quran_app/run_app.dart';
 
-void main() {
-  FlavorConfig.init(
-    flavor: Flavor.dev,
-    appName: 'Quran Dev',
-    baseUrl: 'https://dev-api.quran.example.com',
-  );
-  runApp(const MyApp());
+void main(){
+  AppConfig appConfig = AppConfig(apiBaseUrl:" ApiConstants.baseUrl" , environment: AppEnvironment.dev);
+  runChatApp(appConfig: appConfig);
 }

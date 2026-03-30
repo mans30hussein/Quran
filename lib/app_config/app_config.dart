@@ -1,44 +1,8 @@
-enum Flavor { dev, stg, prod }
+enum AppEnvironment {dev, staging, prod}
+class AppConfig {
+  final AppEnvironment environment;
+  final String apiBaseUrl;
 
-class FlavorConfig {
-  final Flavor flavor;
-  final String appName;
-  final String baseUrl;
-
-  FlavorConfig._({
-    required this.flavor,
-    required this.appName,
-    required this.baseUrl,
-  });
-
-  static FlavorConfig? _instance;
-
-  static FlavorConfig get instance {
-    assert(
-      _instance != null,
-      'FlavorConfig must be initialised before use. '
-      'Call FlavorConfig.init() in your main_*.dart entry point.',
-    );
-    return _instance!;
-  }
-
-  static void init({
-    required Flavor flavor,
-    required String appName,
-    required String baseUrl,
-  }) {
-    _instance = FlavorConfig._(
-      flavor: flavor,
-      appName: appName,
-      baseUrl: baseUrl,
-    );
-  }
-
-  bool get isDev => flavor == Flavor.dev;
-  bool get isStg => flavor == Flavor.stg;
-  bool get isProd => flavor == Flavor.prod;
-
-  @override
-  String toString() =>
-      'FlavorConfig(flavor: $flavor, appName: $appName, baseUrl: $baseUrl)';
+  AppConfig({required this.environment, required this.apiBaseUrl});
+  
 }
