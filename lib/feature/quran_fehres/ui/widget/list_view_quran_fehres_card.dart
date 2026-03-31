@@ -6,14 +6,13 @@ class ListViewQuranFehresCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: ListView.builder(
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      sliver: SliverList.builder(
         itemCount: 114,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 16),
+          return const Padding(
+            padding: EdgeInsets.only(bottom: 16),
             child: QuranFehresCard(),
           );
         },
