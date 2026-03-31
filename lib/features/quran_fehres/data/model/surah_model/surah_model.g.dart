@@ -7,12 +7,12 @@ part of 'surah_model.dart';
 // **************************************************************************
 
 SurahModel _$SurahModelFromJson(Map<String, dynamic> json) => SurahModel(
-  code: (json['code'] as num?)?.toInt(),
-  status: json['status'] as String?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map((e) => SurahDataModel.fromJson(e as Map<String, dynamic>))
-      .toList(),
-);
+      code: (json['code'] as num?)?.toInt(),
+      status: json['status'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map((e) => SurahDataModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$SurahModelToJson(SurahModel instance) =>
     <String, dynamic>{

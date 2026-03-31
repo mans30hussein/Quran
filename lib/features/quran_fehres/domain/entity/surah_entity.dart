@@ -1,6 +1,6 @@
 
 import 'package:hive_flutter/adapters.dart';
-
+part 'surah_entity.g.dart';
 @HiveType(typeId: 0)
 class SurahEntity {
   @HiveField(0)

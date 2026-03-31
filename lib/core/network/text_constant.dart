@@ -1,4 +1,5 @@
 class TextConstant {
+  static const String kFeaturedsurahBox = "surahBox";
   static const String appTitle = "القرآن الكريم";
   static const String lastRead = "اخر ما قرأت";
   static const String lastReadSurahName = "سورة الفاتحة";
