@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/network/api_client.dart';
-import 'package:quran_app/feature/quran_fehres/data/model/surah_model/surah_model.dart';
+import 'package:quran_app/features/quran_fehres/data/model/surah_model/surah_model.dart';
 
 class SurahApiDataSource {
   final ApiClient _apiClient;

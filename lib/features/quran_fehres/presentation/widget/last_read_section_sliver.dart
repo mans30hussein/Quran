@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/network/text_constant.dart';
 import 'package:quran_app/core/utiles/styles.dart';
-import 'package:quran_app/feature/quran_fehres/ui/widget/last_read_card.dart';
+import 'package:quran_app/features/quran_fehres/presentation/widget/last_read_card.dart';
 
-class SectionLastReadCard extends StatelessWidget {
-  const SectionLastReadCard({
-    super.key,
-  });
+class LastReadSectionSliver extends StatelessWidget {
+  const LastReadSectionSliver({super.key});
 
   @override
   Widget build(BuildContext context) {

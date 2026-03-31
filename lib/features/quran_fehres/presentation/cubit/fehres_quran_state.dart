@@ -1,4 +1,4 @@
-import 'package:quran_app/feature/quran_fehres/domain/entity/surah_entity.dart';
+import 'package:quran_app/features/quran_fehres/domain/entity/surah_entity.dart';
 
 sealed class FehresQuranState {}
 

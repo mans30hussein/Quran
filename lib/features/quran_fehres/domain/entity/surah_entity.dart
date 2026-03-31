@@ -1,7 +1,15 @@
+
+import 'package:hive_flutter/adapters.dart';
+
+@HiveType(typeId: 0)
 class SurahEntity {
+  @HiveField(0)
   final int? number;
+  @HiveField(1)
   final String? surahName;
+  @HiveField(2)
   final int? numberOfAyahs;
+  @HiveField(3)
   final String? revelationType;
 
   SurahEntity({

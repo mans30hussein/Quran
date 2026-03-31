@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:quran_app/core/network/api_client.dart';   
-import '../../feature/quran_fehres/data/data_source/surah_api_data_source/surah_api_data_source.dart';
-import '../../feature/quran_fehres/data/repo_impl/surah_repo_impl/surah_repo_impl.dart';
-import '../../feature/quran_fehres/ui/cubit/fehres_quran_cubit.dart';
+import '../../features/quran_fehres/data/data_source/surah_remote_data_source/surah_remote_data_source.dart';
+import '../../features/quran_fehres/data/repo_impl/surah_repo_impl/surah_repo_impl.dart';
+import '../../features/quran_fehres/presentation/cubit/fehres_quran_cubit.dart';
 
 GetIt getIt = GetIt.instance;
 

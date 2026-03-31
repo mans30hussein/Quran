@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/utiles/colores.dart';
 import 'package:quran_app/core/utiles/styles.dart';
-import 'package:quran_app/feature/quran_fehres/domain/entity/surah_entity.dart';
+import 'package:quran_app/features/quran_fehres/domain/entity/surah_entity.dart';
 
-class CustomNumOfSurah extends StatelessWidget {
-  const CustomNumOfSurah({
-    super.key,
-    this.color,
-    required this.surahEntity,
-  });
+class SurahNumberWidget extends StatelessWidget {
+  const SurahNumberWidget({super.key, this.color, required this.surahEntity});
   final Color? color;
   final SurahEntity surahEntity;
 
@@ -17,7 +13,10 @@ class CustomNumOfSurah extends StatelessWidget {
     return CircleAvatar(
       radius: 20,
       backgroundColor: color ?? AppColors.primaryColor,
-      child: Text(surahEntity.number.toString(), style: AppStyles.textStyle14MediumWhite),
+      child: Text(
+        surahEntity.number.toString(),
+        style: AppStyles.textStyle14MediumWhite,
+      ),
     );
   }
 }

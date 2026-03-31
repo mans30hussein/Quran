@@ -3,10 +3,8 @@ import 'package:quran_app/core/network/text_constant.dart';
 import 'package:quran_app/core/utiles/colores.dart';
 import 'package:quran_app/core/utiles/styles.dart';
 
-class SectionAppbarSliver extends StatelessWidget {
-  const SectionAppbarSliver({
-    super.key,
-  });
+class FehresSliverAppBar extends StatelessWidget {
+  const FehresSliverAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +12,7 @@ class SectionAppbarSliver extends StatelessWidget {
       backgroundColor: const Color(0xffFDBD77),
       leading: IconButton(
         onPressed: () {},
-        icon: const Icon(
-          Icons.menu,
-          size: 32,
-          color: AppColors.primaryColor,
-        ),
+        icon: const Icon(Icons.menu, size: 32, color: AppColors.primaryColor),
       ),
       centerTitle: true,
       title: Text(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomImageMaccOrMadina extends StatelessWidget {
-  const CustomImageMaccOrMadina({super.key, this.imageUrl});
+class SurahTypeImage extends StatelessWidget {
+  const SurahTypeImage({super.key, this.imageUrl});
   final String? imageUrl;
   @override
   Widget build(BuildContext context) {
