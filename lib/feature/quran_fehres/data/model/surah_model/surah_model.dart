@@ -36,6 +36,4 @@ class SurahDataModel {
   factory SurahDataModel.fromJson(Map<String, dynamic> json) =>
       _$SurahDataModelFromJson(json);
   Map<String, dynamic> toJson() => _$SurahDataModelToJson(this);
-
-  
 }

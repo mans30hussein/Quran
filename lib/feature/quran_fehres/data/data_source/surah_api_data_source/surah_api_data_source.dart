@@ -9,6 +9,6 @@ class SurahApiDataSource {
   Future<SurahModel> getAllSurahs() async {
     final response = await _apiClient.get(urlEndPoint: "surah");
     debugPrint(response.data.toString());
-    return SurahModel.fromJson(response.data);  // as Map<String, dynamic>
+    return SurahModel.fromJson(response.data); // as Map<String, dynamic>
   }
 }

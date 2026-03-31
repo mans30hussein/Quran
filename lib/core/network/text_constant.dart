@@ -9,5 +9,5 @@ class TextConstant {
   static const String revelationType = "نوع الوحي";
   static const String mecca = "مكة";
   static const String medina = "المدينة";
-  static const String verses = "آيات";
+  static const String verses = "أياتها";
 }

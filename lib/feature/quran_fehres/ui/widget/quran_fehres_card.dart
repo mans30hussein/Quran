@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/network/text_constant.dart';
 import 'package:quran_app/core/utiles/styles.dart';
+import 'package:quran_app/feature/quran_fehres/domain/entity/surah_entity.dart';
 import 'package:quran_app/feature/quran_fehres/ui/widget/custom_image_macc_or_madina.dart';
 import 'package:quran_app/feature/quran_fehres/ui/widget/custom_num_of_surah.dart';
 
 class QuranFehresCard extends StatelessWidget {
-  const QuranFehresCard({super.key});
+  const QuranFehresCard({super.key, required this.surahEntity});
+
+  final SurahEntity surahEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +21,12 @@ class QuranFehresCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          CustomNumOfSurah(),
+          CustomNumOfSurah(
+            surahEntity: surahEntity,
+          ),
           SizedBox(width: 12),
           Text(
-            TextConstant.surahName,
+            surahEntity.surahName ?? "",
             style: AppStyles.textStyle24BoldPrimary.copyWith(fontSize: 18),
           ),
           Expanded(child: SizedBox()),
@@ -33,7 +38,7 @@ class QuranFehresCard extends StatelessWidget {
               ),
 
               Text(
-                TextConstant.numberOfAyahs,
+                surahEntity.numberOfAyahs.toString(),
                 style: AppStyles.textStyle24BoldPrimary.copyWith(fontSize: 12),
               ),
             ],
