@@ -41,7 +41,7 @@ class SurahCard extends StatelessWidget {
             ],
           ),
           const SizedBox(width: 16),
-          const SurahTypeImage(),
+         // const SurahTypeImage(),
         ],
       ),
     );

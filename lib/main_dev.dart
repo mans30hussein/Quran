@@ -8,14 +8,15 @@ import 'core/di/dependency_injection.dart';
 import 'features/quran_fehres/domain/entity/surah_entity.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(SurahEntityAdapter());
+  await Hive.openBox<SurahEntity>(TextConstant.kFeaturedsurahBox);
   AppConfig appConfig = AppConfig(
     apiBaseUrl: ApiConstants.baseUrl,
     environment: AppEnvironment.dev,
   );
 
   await setupDependencies();
-  Hive.initFlutter();
-  Hive.registerAdapter(SurahEntityAdapter());
-  await Hive.openBox(TextConstant.kFeaturedsurahBox);
+
   runChatApp(appConfig: appConfig);
 }
