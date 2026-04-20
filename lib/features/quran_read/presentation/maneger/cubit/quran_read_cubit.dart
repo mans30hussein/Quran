@@ -22,16 +22,17 @@ class QuranCubit extends Cubit<QuranState> {
     }
   }
 
-  Future<void> getSurahByNumber(int number) async {
-    emit(QuranLoading());
+  // Future<void> getSurahByNumber(int number) async {
+  //   emit(QuranLoading());
 
-    final result = await repository.getSurahByNumber(number);
+  //   final result = await repository.getSurahByNumber(number);
 
-    if (result is Success<QuranSurahEntity>) {
-      // تقدر تضيف State خاص بالسورة لو عايز
-      print(result.data.name);
-    } else if (result is Failure<QuranSurahEntity>) {
-      emit(QuranError(result.message));
-    }
-  }
+  //   if (result is Success<QuranSurahEntity>) {
+  //     // تقدر تضيف State خاص بالسورة لو عايز
+  //    // print(result.data.name);
+
+  //   } else if (result is Failure<QuranSurahEntity>) {
+  //     emit(QuranError(result.message));
+  //   }
+  // }
 }

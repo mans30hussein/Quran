@@ -4,6 +4,7 @@ import 'package:quran_app/features/quran_fehres/presentation/cubit/fehres_quran_
 import 'package:quran_app/features/quran_fehres/presentation/cubit/fehres_quran_state.dart';
 import 'package:quran_app/features/quran_fehres/presentation/widget/surah_card.dart';
 import 'package:quran_app/features/quran_fehres/presentation/widget/surah_card_shimmer.dart';
+import 'package:quran_app/features/quran_read/presentation/views/quran.dart';
 
 class QuranSurahListSliver extends StatelessWidget {
   const QuranSurahListSliver({super.key});
@@ -20,7 +21,19 @@ class QuranSurahListSliver extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16),
-                  child: SurahCard(surahEntity: state.surahs[index]),
+                  child: SurahCard(
+                    surahEntity: state.surahs[index],
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => QuranTestScreen(
+                            initialSurahNumber: state.surahs[index].number,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
             ),
