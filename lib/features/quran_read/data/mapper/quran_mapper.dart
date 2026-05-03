@@ -1,6 +1,6 @@
 import '../../domain/entity/ayah_entity.dart';
 import '../../domain/entity/quran_surah_entity.dart';
-import '../data_source/model/quran_model.dart';
+import '../model/quran_model.dart';
 
 extension AyahMapper on AyahModel {
   AyahEntity toEntity() {

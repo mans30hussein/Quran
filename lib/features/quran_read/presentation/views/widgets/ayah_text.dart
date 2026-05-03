@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/utiles/colores.dart';
-
+ 
 class AyahText extends StatelessWidget {
   final String text;
   final int number;
@@ -10,6 +9,7 @@ class AyahText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(
+      
       buildSpan(text: text, number: number),
       textAlign: TextAlign.justify,
       textDirection: TextDirection.rtl,

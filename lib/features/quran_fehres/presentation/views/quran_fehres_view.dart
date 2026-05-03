@@ -12,9 +12,11 @@ class QuranFehresView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return BlocProvider<FehresQuranCubit>(
       create: (context) =>
           FehresQuranCubit(getIt<SurahRepoImpl>())..getAllSurahs(),
+          
       child: Scaffold(
         backgroundColor: const Color(0xffFDBD77),
         body: Directionality(

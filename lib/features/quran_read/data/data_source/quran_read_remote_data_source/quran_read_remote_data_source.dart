@@ -1,7 +1,7 @@
   import 'package:flutter/material.dart';
 
   import '../../../../../core/network/api_client.dart';
-  import '../model/quran_model.dart';
+  import '../../model/quran_model.dart';
 
   class QuranReadRemoteDataSource {
     final ApiClient _apiClient;
