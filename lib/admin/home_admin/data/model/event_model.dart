@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EventModel {
   final String? id;
-  final String contentTitle;
   final String eventTitle;
   final String desc;
   final String programId;
@@ -14,7 +13,6 @@ class EventModel {
 
   const EventModel({
     this.id,
-    required this.contentTitle,
     required this.eventTitle,
     required this.desc,
     required this.programId,
@@ -24,7 +22,6 @@ class EventModel {
   });
 
   Map<String, dynamic> toMap() => {
-    'contentTitle': contentTitle,
     'eventTitle': eventTitle,
     'desc': desc,
     'programId': programId,
@@ -37,7 +34,6 @@ class EventModel {
   factory EventModel.fromMap(Map<String, dynamic> map, String id) =>
     EventModel(
       id: id,
-      contentTitle: map['contentTitle'] as String? ?? '',
       eventTitle:   map['eventTitle']   as String? ?? '',
       desc:         map['desc']         as String? ?? '',
       programId:    map['programId']    as String? ?? '',
@@ -52,7 +48,6 @@ class EventModel {
     DateTime? scheduledAt, int? durationMinutes,
   }) => EventModel(
     id: id ?? this.id,
-    contentTitle: contentTitle ?? this.contentTitle,
     eventTitle:   eventTitle   ?? this.eventTitle,
     desc:         desc         ?? this.desc,
     programId:    programId    ?? this.programId,

@@ -122,14 +122,16 @@ class HomeProgram extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await Navigator.push(
+            Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const AddProgram()),
-            );
-            // ✅ Refresh list when returning from AddProgram
-            if (context.mounted) {
-              context.read<ProgramCubit>().getProgram();
-            }
+            ).then((result) {
+              if (result == true) {
+                context
+                    .read<ProgramCubit>()
+                    .getProgram(); // 👈 called on the correct Cubit
+              }
+            });
           },
           child: const Icon(Icons.add),
         ),

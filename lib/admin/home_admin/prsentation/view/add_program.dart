@@ -5,7 +5,6 @@ import 'package:quran_app/admin/home_admin/data/model/program_model.dart';
 import 'package:quran_app/admin/home_admin/data/remote_data_source/program_remote_data_source.dart';
 import 'package:quran_app/admin/home_admin/data/repo_impl/program_repo_impl.dart';
 import 'package:quran_app/admin/home_admin/prsentation/maneger/program_state.dart';
-import 'package:quran_app/admin/home_admin/prsentation/view/home_program.dart';
 
 import '../maneger/program_cubit.dart';
 
@@ -46,10 +45,12 @@ class _AddProgramState extends State<AddProgram> {
           child: BlocListener<ProgramCubit, ProgramState>(
             listener: (context, state) {
               if (state is ProgramSuccess) {
-                final data = state.programModel;
-                print(data);
-                Navigator.pop(context);
+                // final data = state.programModel;
+                // context
+                //     .read<ProgramCubit>()
+                //     .getProgram(); // or fetchEvents(), loadEvents()
               }
+              Navigator.pop(context, true);
 
               if (state is ProgramError) {
                 ScaffoldMessenger.of(
