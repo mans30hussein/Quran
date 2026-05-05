@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:quran_app/app_config/app_config.dart';
 import 'package:quran_app/core/network/api_constants.dart';
@@ -14,5 +15,5 @@ void main() async {
     apiBaseUrl: ApiConstants.baseUrl,
     environment: AppEnvironment.staging,
   );
-  runChatApp(appConfig: appConfig);
+  runApp(MyApp(appConfig: appConfig));
 }
