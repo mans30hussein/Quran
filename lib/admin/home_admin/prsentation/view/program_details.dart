@@ -5,7 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:quran_app/admin/core/l10n/app_strings.dart';
 import 'package:quran_app/admin/core/theme/app_text_styles.dart';
 import 'package:quran_app/admin/home_admin/prsentation/maneger/cubit/event_state.dart';
-import 'package:quran_app/admin/home_admin/prsentation/view/add_event.dart';
+import 'package:quran_app/admin/core/routing/admin_route_args.dart';
+import 'package:quran_app/admin/core/routing/admin_routes.dart';
 
 
 import '../../../core/theme/app_colors.dart';
@@ -342,11 +343,10 @@ class _AddEventFab extends StatelessWidget {
       backgroundColor: AppColors.primary,
       foregroundColor: AppColors.textOnPrimary,
       onPressed: () async {
-        await Navigator.push(
+        await Navigator.pushNamed(
           context,
-          MaterialPageRoute(
-            builder: (_) => AddEventScreen(programId: programId),
-          ),
+          AdminRoutes.addEvent,
+          arguments: AddEventArgs(programId: programId),
         );
         if (context.mounted) {
           context.read<EventCubit>().getEventsByProgram(programId);

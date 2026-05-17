@@ -3,14 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/admin/core/l10n/app_strings.dart';
  import 'package:quran_app/admin/home_admin/prsentation/maneger/program_cubit.dart';
 import 'package:quran_app/admin/home_admin/prsentation/maneger/program_state.dart';
-import 'package:quran_app/admin/home_admin/prsentation/view/add_program.dart';
+import 'package:quran_app/admin/core/routing/admin_route_args.dart';
+import 'package:quran_app/admin/core/routing/admin_routes.dart';
 import 'package:quran_app/admin/home_admin/prsentation/widget/error_view.dart';
 import 'package:quran_app/admin/home_admin/prsentation/widget/home_program_widget/program_card.dart';
 import 'package:quran_app/admin/home_admin/prsentation/widget/home_program_widget/program_card_skeleton.dart';
  import 'package:quran_app/core/utiles/colores.dart';
  import '../../../../core/di/dependency_injection.dart';
-
-import 'program_details.dart';
 
 class HomeProgram extends StatelessWidget {
   const HomeProgram({super.key});
@@ -58,11 +57,10 @@ class HomeProgram extends StatelessWidget {
                   
                       return GestureDetector(
                         onTap: () {
-                          Navigator.push(
+                          Navigator.pushNamed(
                             context,
-                            MaterialPageRoute(
-                              builder: (_) => ProgramDetails(program: item),
-                            ),
+                            AdminRoutes.programDetails,
+                            arguments: ProgramDetailsArgs(program: item),
                           );
                         },
                         child: ProgramCard(item: item),
@@ -76,16 +74,13 @@ class HomeProgram extends StatelessWidget {
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () async {
-                Navigator.push(
+                final result = await Navigator.pushNamed<bool>(
                   context,
-                  MaterialPageRoute(builder: (_) => const AddProgram()),
-                ).then((result) {
-                  if (result == true) {
-                    context
-                        .read<ProgramCubit>()
-                        .getProgram(); // 👈 called on the correct Cubit
-                  }
-                });
+                  AdminRoutes.addProgram,
+                );
+                if (result == true && context.mounted) {
+                  context.read<ProgramCubit>().getProgram();
+                }
               },
               child: const Icon(Icons.add),
             ),
