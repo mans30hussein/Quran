@@ -1,7 +1,9 @@
 abstract class AppStrings {
+
+
   // ── Screen ───────────────────────────────────────────
   static const screenTitle          = 'Add Event';
-
+  static const programTitle         = 'Programs';
   // ── Section headers ──────────────────────────────────
   static const sectionBasicInfo     = 'Event Details';
   static const sectionMeeting       = 'Meeting';

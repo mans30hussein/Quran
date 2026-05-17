@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class AppColors {
   // ── Primary (Forest Green) ────────────────────────────
-  static const primary = Color(0xFF1B4332);
+  static const primary = Color(0xff0f2318); //0xFF1B4332
   static const primaryLight = Color(0xFF2D6A4F);
   static const primarySurface = Color(0xFFD8F3DC);
 

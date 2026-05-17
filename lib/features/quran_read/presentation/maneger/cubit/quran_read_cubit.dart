@@ -5,10 +5,10 @@ import '../../../domain/entity/quran_surah_entity.dart';
 import '../../../domain/repo/quran_repo.dart';
 import 'quran_read_state.dart';
 
-class QuranCubit extends Cubit<QuranState> {
+class QuranReadCubit extends Cubit<QuranState> {
   final QuranRepository repository;
 
-  QuranCubit({required this.repository}) : super(QuranInitial());
+  QuranReadCubit({required this.repository}) : super(QuranInitial());
 
   Future<void> getQuran() async {
     emit(QuranLoading());

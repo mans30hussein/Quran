@@ -15,10 +15,10 @@ class QuranTestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider<QuranCubit>(
+      body: BlocProvider<QuranReadCubit>(
         create: (context) =>
-            QuranCubit(repository: getIt<QuranReadRepoImpl>())..getQuran(),
-        child: BlocBuilder<QuranCubit, QuranState>(
+            QuranReadCubit(repository: getIt<QuranReadRepoImpl>())..getQuran(),
+        child: BlocBuilder<QuranReadCubit, QuranState>(
           builder: (context, state) {
             if (state is QuranLoading) {
               return const Center(child: CircularProgressIndicator());
