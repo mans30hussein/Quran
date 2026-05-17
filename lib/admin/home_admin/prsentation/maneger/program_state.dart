@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import '../../data/model/program_model.dart';
 
 abstract class ProgramState {}
@@ -17,4 +19,8 @@ class ProgramsFetchSuccess extends ProgramState {
 class ProgramError extends ProgramState {
   final String error;
   ProgramError(this.error);
+}
+class ProgramImagePicked extends ProgramState {
+  final File image;
+  ProgramImagePicked(this.image);
 }

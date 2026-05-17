@@ -21,12 +21,12 @@ class AddEventViewBody extends StatefulWidget {
 
 class _AddEventViewState extends State<AddEventViewBody> {
   late final AddEventFormController _form;
- 
+
   @override
   void initState() {
     super.initState();
     _form = AddEventFormController();
-   }
+  }
 
   @override
   void dispose() {
@@ -40,10 +40,9 @@ class _AddEventViewState extends State<AddEventViewBody> {
       listener: (context, state) {
         if (state is EventAddSuccess) {
           Navigator.pop(context);
-context.read<EventCubit>().getEventsByProgram(widget.programId); // or fetchEvents(), loadEvents()
-
-
-
+          context.read<EventCubit>().getEventsByProgram(
+            widget.programId,
+          ); // or fetchEvents(), loadEvents()
         }
         if (state is EventError) {
           AddEventActions.showError(context, state.error);

@@ -1,6 +1,9 @@
 import 'package:get_it/get_it.dart';
+import 'package:quran_app/admin/home_admin/domain/repo/program_repo.dart';
 import 'package:quran_app/core/network/api_client.dart';
 import 'package:quran_app/features/quran_read/data/data_source/quran_read_remote_data_source/quran_read_remote_data_source.dart';
+import '../../admin/home_admin/data/remote_data_source/program_remote_data_source.dart';
+import '../../admin/home_admin/data/repo_impl/program_repo_impl.dart';
 import '../../features/quran_fehres/data/data_source/surah_local_data_source/surah_local_data_source.dart';
 import '../../features/quran_fehres/data/data_source/surah_remote_data_source/surah_remote_data_source.dart';
 import '../../features/quran_fehres/data/repo_impl/surah_repo_impl/surah_repo_impl.dart';
@@ -13,21 +16,18 @@ Future<void> setupDependencies() async {
   final apiClient = await ApiClient.create();
 
   getIt.registerLazySingleton(() => apiClient);
-
   getIt.registerLazySingleton<SurahLocalDataSource>(
     () => SurahLocalDataSourceImpl(),
   );
   getIt.registerLazySingleton<SurahApiDataSource>(
     () => SurahApiDataSource(getIt<ApiClient>()),
   );
-
   getIt.registerLazySingleton<SurahRepoImpl>(
     () => SurahRepoImpl(
       getIt<SurahApiDataSource>(),
       getIt<SurahLocalDataSource>(),
     ),
   );
-
   getIt.registerFactory<FehresQuranCubit>(
     () => FehresQuranCubit(getIt<SurahRepoImpl>()),
   );
@@ -37,4 +37,8 @@ Future<void> setupDependencies() async {
   getIt.registerFactory<QuranReadRemoteDataSource>(
     () => QuranReadRemoteDataSource(getIt<ApiClient>()),
   );
+ 
+
+    
+
 }
