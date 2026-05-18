@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:quran_app/admin/home_admin/domain/repo/program_repo.dart';
 import 'package:quran_app/core/network/api_client.dart';
@@ -17,47 +18,67 @@ import '../../features/quran_read/presentation/maneger/cubit/quran_read_cubit.da
 GetIt getIt = GetIt.instance;
 
 Future<void> setupDependencies() async {
+
+  debugPrint('🔧 Starting DI setup...');
+  
   final apiClient = await ApiClient.create();
+  debugPrint('✅ ApiClient');
 
   getIt.registerLazySingleton(() => apiClient);
- 
+  debugPrint('✅ ApiClient registered');
+
   getIt.registerLazySingleton<SurahApiDataSource>(
     () => SurahApiDataSource(getIt<ApiClient>()),
   );
-   getIt.registerLazySingleton<SurahLocalDataSource>(
+  debugPrint('✅ SurahApiDataSource');
+
+  getIt.registerLazySingleton<SurahLocalDataSource>(
     () => SurahLocalDataSourceImpl(),
   );
+  debugPrint('✅ SurahLocalDataSource');
+
   getIt.registerLazySingleton<SurahRepoImpl>(
-    () => SurahRepoImpl(
-      getIt<SurahApiDataSource>(),
-      getIt<SurahLocalDataSource>(),
-    ),
+    () => SurahRepoImpl(getIt<SurahApiDataSource>(), getIt<SurahLocalDataSource>()),
   );
+  debugPrint('✅ SurahRepoImpl');
+
   getIt.registerFactory<FehresQuranCubit>(
     () => FehresQuranCubit(getIt<SurahRepoImpl>()),
   );
- 
+  debugPrint('✅ FehresQuranCubit');
+
   getIt.registerLazySingleton<QuranReadRemoteDataSource>(
     () => QuranReadRemoteDataSource(getIt<ApiClient>()),
   );
-   getIt.registerLazySingleton<QuranReadRepoImpl>(
+  debugPrint('✅ QuranReadRemoteDataSource');
+
+  getIt.registerLazySingleton<QuranRepository>(
     () => QuranReadRepoImpl(getIt<QuranReadRemoteDataSource>()),
-  ); 
-    getIt.registerFactory<QuranReadCubit>(
-    () => QuranReadCubit ( repository: getIt<QuranRepository>()),
   );
- 
+  debugPrint('✅ QuranRepository');
+
+  getIt.registerFactory<QuranReadCubit>(
+    () => QuranReadCubit(repository: getIt<QuranRepository>()),
+  );
+  debugPrint('✅ QuranReadCubit');
+
   getIt.registerLazySingleton<FirebaseFirestore>(
     () => FirebaseFirestore.instance,
   );
+  debugPrint('✅ FirebaseFirestore');
 
   getIt.registerLazySingleton<ProgramRemoteDataSource>(
     () => ProgramRemoteDataSource(getIt<FirebaseFirestore>()),
   );
+  debugPrint('✅ ProgramRemoteDataSource');
 
   getIt.registerLazySingleton<ProgramRepo>(
     () => ProgramRepoImpl(getIt<ProgramRemoteDataSource>()),
   );
+  debugPrint('✅ ProgramRepo');
 
-  getIt.registerFactory<ProgramCubit>(() => ProgramCubit(getIt<ProgramRepo>()));
+  getIt.registerFactory<ProgramCubit>(
+    () => ProgramCubit(getIt<ProgramRepo>()),
+  );
+  debugPrint('✅ ProgramCubit — DI setup complete!');
 }

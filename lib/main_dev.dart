@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:quran_app/admin/home_admin/prsentation/view/home_program.dart';
 import 'package:quran_app/app_config/app_config.dart';
 import 'package:quran_app/core/network/api_constants.dart';
 import 'package:quran_app/core/network/text_constant.dart';
@@ -14,19 +13,29 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    // ✅ Use try/catch instead of Firebase.apps.isEmpty
+    try {
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    } catch (e) {
+      // Firebase already initialized — ignore and continue
+      debugPrint('Firebase already initialized, skipping...');
+    }
+
     await Hive.initFlutter();
     Hive.registerAdapter(SurahEntityAdapter());
     await Hive.openBox<SurahEntity>(TextConstant.kFeaturedsurahBox);
     await setupDependencies();
-  } catch (e) {
+  } catch (e, stack) {
+    debugPrint('❌ Setup failed: $e');
+    debugPrint('$stack');
     runApp(
-      const MaterialApp(
-        home: Scaffold(body: Center(child: Text("Something went wrong"))),
+      MaterialApp(
+        home: Scaffold(body: Center(child: Text("Error: $e"))),
       ),
     );
+    return;
   }
 
   runApp(
